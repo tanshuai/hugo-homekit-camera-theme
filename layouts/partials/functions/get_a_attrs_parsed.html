@@ -1,0 +1,17 @@
+{{/* parse href, target, noopener by url */}}
+
+{{ $link := . }}
+{{ $scheme := (urls.Parse $link).Scheme }}
+
+{{ $target := "" }}
+{{ if not $scheme }}
+  {{ $link = $link | relLangURL }}
+{{ else if in (slice "http" "https") $scheme }}
+  {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+{{ end }}
+
+{{ $href := printf "href=\"%s\"" ($link | safeURL) }}
+
+{{ $res := printf "%s %s" $href $target }}
+
+{{ return $res }}

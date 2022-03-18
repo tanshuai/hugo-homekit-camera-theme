@@ -1,0 +1,14 @@
+{{ $icon := (string (index . "icon")) }}
+{{ $pack := "fas" }}
+{{ if isset . "pack" }}
+  {{$pack = (string .pack)}}
+{{end}}
+
+{{ $pack_prefix := $pack }}
+{{ if in (slice "fab" "fas" "far" "fal") $pack }}
+  {{ $pack_prefix = "fa" }}
+{{ end }}
+
+{{ $res := printf "%s %s-%s" $pack $pack_prefix $icon }}
+
+{{ return $res }}

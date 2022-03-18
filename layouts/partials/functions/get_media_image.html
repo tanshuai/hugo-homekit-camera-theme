@@ -1,0 +1,8 @@
+{{ $filename := . }}
+
+{{ $imageBaseName := path.Base $filename }}
+{{ $imageFullDir := path.Dir $filename }}
+
+{{ $resource := resources.Get (path.Join "media" $imageBaseName) }}
+
+{{ return $resource }}

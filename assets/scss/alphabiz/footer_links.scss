@@ -1,0 +1,17 @@
+.cc-footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  div {
+    padding: 2px 8px;
+  }
+  a {
+    cursor: pointer;
+  }
+  i {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+}
