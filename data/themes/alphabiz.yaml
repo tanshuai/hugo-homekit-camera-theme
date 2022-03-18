@@ -11,13 +11,13 @@ light:
 #  home_section_even: "transparent"
 
 #  menu_primary: "#efefef"
-  menu_primary: "#ffffffd2"
+  menu_primary: "#efefefd2"
   menu_title: "#242424"
   menu_text: "#242424"
   menu_text_active: "#dca95a"
 
 dark:
-  primary: "#ecbe76"
+  primary: "#efab42"
   background: "#242424"
 
 #  home_section_odd: "transparent"
@@ -26,7 +26,7 @@ dark:
   menu_primary: "#242424d2"
   menu_title: "#efefef"
   menu_text: "#efefef"
-  menu_text_active: "#ecbe76"
+  menu_text_active: "#efab42"
 
 
 menu_hover: true
