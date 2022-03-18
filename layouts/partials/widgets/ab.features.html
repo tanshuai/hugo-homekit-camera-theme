@@ -1,0 +1,31 @@
+{{$page := .root}}
+{{$title := .page.Title}}
+{{$content := .page.Content}}
+{{$params := .page.Params.ab_features}}
+
+<div class="ab-features">
+  <h2 class="ab-features-title">{{$title | markdownify | emojify }}</h2>
+
+  {{ if $params.summary }}
+  <div class="ab-features-summary">{{ $params.summary | markdownify | emojify }}</div>
+  {{ end }}
+
+  {{ if $content }}
+  <div class="ab-features-content">{{ $content | markdownify | emojify }}</div>
+  {{ end }}
+
+  <div class="ab-features-items">
+    {{range $params.items}}
+    <div class="ab-features-item">
+      {{if isset . "icon"}}
+        {{ $iconClz := partial "functions/get_icon_classes" (dict "icon" .icon "pack" .icon_pack) }}
+        <i class="{{ $iconClz }} mr-1" aria-hidden="true"></i>
+      {{end}}
+      <h2 class="{{if not (isset . "icon") }}ab-features-item-header{{end}}">{{.label | markdownify | emojify | safeHTML}}</h2>
+      {{if isset . "description"}}
+        <div>{{.description | markdownify | emojify | safeHTML}}</div>
+      {{end}}
+    </div>
+    {{end}}
+  </div>
+</div>
