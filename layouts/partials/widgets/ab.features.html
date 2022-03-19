@@ -18,8 +18,13 @@
     {{range $params.items}}
     <div class="ab-features-item">
       {{if isset . "icon"}}
-        {{ $iconClz := partial "functions/get_icon_classes" (dict "icon" .icon "pack" .icon_pack) }}
-        <i class="{{ $iconClz }} mr-1" aria-hidden="true"></i>
+        {{ if eq .icon_pack "custom" }}
+          {{ $img_icon := resources.Get (path.Join "media" "icons" (path.Base .icon)) }}
+          <img src="{{ $img_icon.RelPermalink }}" alt="{{.}}">
+        {{ else }}
+          {{ $iconClz := partial "functions/get_icon_classes" (dict "icon" .icon "pack" .icon_pack) }}
+          <i class="{{ $iconClz }} mr-1" aria-hidden="true"></i>
+        {{ end }}
       {{end}}
       <h2 class="{{if not (isset . "icon") }}ab-features-item-header{{end}}">{{.label | markdownify | emojify | safeHTML}}</h2>
       {{if isset . "description"}}
