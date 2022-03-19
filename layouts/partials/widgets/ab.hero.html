@@ -11,14 +11,30 @@
     {{if $params.cta }}
     <div class="ab-hero-actions">
       <!-- cta button -->
-      {{$attrs := partial "functions/get_a_attrs_parsed" $params.cta.url}}
-      <a class="ab-hero-cta-button" {{$attrs | safeHTMLAttr}}>
-        {{if $params.cta.icon}}
-        {{ $iconClz := partial "functions/get_icon_classes" (dict "icon" $params.cta.icon "pack" $params.cta.icon_pack) }}
-        <i class="{{ $iconClz }} mr-1" aria-hidden="true"></i>
-        {{end}}
-        <span>{{- $params.cta.label | markdownify | emojify | safeHTML -}}</span>
-      </a>
+      <div class="ab-hero-cta">
+        <div id="btn_download_sys">
+          <i class="fab fa-windows mr-1"></i>
+          <span>{{ i18n "get_alphabiz" }}</span>
+        </div>
+        <div class="ab-hero-cta-more">
+          <i class="fas fa-caret-down" aria-hidden="true"></i>
+          <div class="ab-hero-cta-menu">
+            <div id="btn_download_win">
+              <i class="fab fa-windows mr-1"></i>
+              <span>{{ i18n "win" }}</span>
+            </div>
+            <div id="btn_download_mac">
+              <i class="fab fa-apple mr-1"></i>
+              <span>{{ i18n "mac" }}</span>
+            </div>
+            <div id="btn_download_linux">
+              <i class="fab fa-linux mr-1"></i>
+              <span>{{ i18n "linux" }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <!-- cta alt -->
       {{if and $params.cta.alt_url $params.cta.alt_label}}

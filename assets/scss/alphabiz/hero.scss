@@ -43,6 +43,7 @@ body {
   justify-content: stretch;
   align-items: stretch;
   flex-wrap: nowrap;
+
   .ab-hero-wrapper, .ab-hero-image {
     padding: 0 8px;
     flex: 1;
@@ -77,38 +78,12 @@ body {
   //outline: 16px solid red;
   display: flex;
   align-items: center;
+
   img {
     margin-top: 1rem;
     border-radius: 4px;
     overflow: hidden;
   }
-}
-
-.ab-hero-cta-button {
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  padding: 0.25rem 1.5rem;
-  min-width: 200px;
-  font-size: 1rem;
-  font-weight: bold;
-  line-height: 2;
-  text-align: center;
-  white-space: nowrap;
-
-  &:hover {
-    filter: brightness(1.1);
-    -webkit-filter: brightness(1.1);
-  }
-
-  &:active {
-    filter: brightness(0.9);
-    -webkit-filter: brightness(0.9);
-  }
-
-  // override <a> style
-  color: black !important;
-  text-decoration: none !important;
 }
 
 .ab-hero-cta-alt {
@@ -119,6 +94,93 @@ body {
   margin: 1rem 1.5rem;
 }
 
+.ab-hero-cta-button {
+  padding: 0.25rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  border: none;
+  line-height: 2;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+
+  // override <a> style
+  color: black !important;
+  text-decoration: none !important;
+}
+
+#btn_download_sys,
+#btn_download_win,
+#btn_download_mac,
+#btn_download_linux,
+.ab-hero-cta-more {
+  @extend .ab-hero-cta-button;
+}
+
+#btn_download_sys,
+#btn_download_win,
+#btn_download_mac,
+#btn_download_linux {
+  &:hover {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+
+  &:active {
+    filter: brightness(0.9);
+    -webkit-filter: brightness(0.9);
+  }
+}
+
+.ab-hero-cta {
+  width: 280px;
+  display: flex;
+  align-items: stretch;
+
+  #btn_download_sys {
+    border-radius: 4px 0 0 4px;
+    padding: 0.25rem 0.75rem 0.25rem 1.5rem;
+    flex-grow: 1;
+  }
+
+  .ab-hero-cta-more {
+    border-radius: 0 4px 4px 0;
+    padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+
+    &:hover {
+      .ab-hero-cta-menu {
+        display: block;
+      }
+    }
+
+    .ab-hero-cta-menu {
+      display: none;
+      border-radius: 4px;
+      overflow: hidden;
+      position: absolute;
+      top: calc(100% + 1px);
+      right: 0;
+      box-shadow: 0 0 4px 0 rgba(0,0,0, 0.4);
+
+      #btn_download_win,
+      #btn_download_mac,
+      #btn_download_linux {
+        i {
+          font-size: 1rem;
+        }
+        width: 280px;
+        font-weight: normal;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
 
 // for mobile
 body {
@@ -151,6 +213,7 @@ body {
 .ab-hero-cta-button {
   background-color: var(--primary-color);
 }
+
 .ab-hero-cta-alt {
   color: var(--primary-color);
 }
