@@ -1,0 +1,25 @@
+{{$page := .root}}
+{{$title := .page.Title}}
+{{$content := .page.Content}}
+{{$params := .page.Params.ab_release}}
+
+<div class="ab-release">
+  <div class="platform">
+    <h1><i class="fab fa-windows"></i></h1>
+    <h2>Windows</h2>
+    <div id="release_win" class="content">
+    </div>
+  </div>
+  <div class="platform">
+    <h1><i class="fab fa-apple"></i></h1>
+    <h2>macOS</h2>
+    <div id="release_mac" class="content">
+    </div>
+  </div>
+  <div class="platform">
+    <h1><i class="fab fa-linux"></i></h1>
+    <h2>Linux</h2>
+    <div id="release_linux" class="content">
+    </div>
+  </div>
+</div>

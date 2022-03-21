@@ -6,3 +6,5 @@
   translation: macOS
 - id: linux
   translation: Linux
+- id: all_releases
+  translation: All Releases

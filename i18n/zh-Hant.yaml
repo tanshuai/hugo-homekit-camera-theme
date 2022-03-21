@@ -1,8 +1,10 @@
 - id: get_alphabiz
-  translation: Get Alphabiz
+  translation: 下載 Alphabiz
 - id: win
   translation: Windows
 - id: mac
   translation: macOS
 - id: linux
   translation: Linux
+- id: all_releases
+  translation: 所有版本
