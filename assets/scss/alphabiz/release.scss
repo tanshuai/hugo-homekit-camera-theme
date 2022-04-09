@@ -53,6 +53,10 @@
       & > div:nth-child(2) {
         margin-left: 4px;
       }
+
+      & > div:last-child {
+        text-align: center;
+      }
     }
   }
 }
@@ -79,7 +83,7 @@
         background-color: rgba(127, 127, 127, 0.2);
       }
 
-      & > div:nth-child(2) {
+      & > div:last-child {
         cursor: pointer;
 
         &:hover {
