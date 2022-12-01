@@ -1,0 +1,17 @@
+{{ $video_path := .Params.src }}
+{{ $video := resources.Get (printf "media/%s" $video_path) }}
+
+<div class="ab-video">
+  {{with $video}}
+  <video
+    controls
+    preload
+    controlslist="nodownload"
+    tabindex="-1"
+    width="100%"
+    height="100%"
+    src="{{.RelPermalink}}"
+    style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;"
+  ></video>
+  {{end}}
+</div>
