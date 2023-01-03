@@ -50,7 +50,16 @@
     {{end}}
   </div>
   <div class="ab-hero-image">
-    {{$image := partial "functions/get_media_image" $params.hero_image}}
-    <img src="{{ $image.RelPermalink }}" alt="{{.}}">
+    {{ $image_pathname := $params.hero_image }}
+    {{ if (reflect.IsMap $image_pathname) }}
+      {{$image := partial "functions/get_media_image" $image_pathname.light}}
+      <img class="light-image" src="{{ $image.RelPermalink }}" alt="{{.}}">
+      {{$image := partial "functions/get_media_image" $image_pathname.dark}}
+      <img class="dark-image" src="{{ $image.RelPermalink }}" alt="{{.}}">
+    {{ else }}
+      {{$image := partial "functions/get_media_image" $image_pathname}}
+      <img src="{{ $image.RelPermalink }}" alt="{{.}}">
+    {{ end }}
+
   </div>
 </div>

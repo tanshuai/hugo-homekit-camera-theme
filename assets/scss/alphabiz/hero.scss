@@ -195,3 +195,21 @@ body {
 .ab-hero-cta-alt {
   color: var(--primary-color);
 }
+
+// hero-image
+body {
+  &.dark {
+    .ab-hero-image {
+      &>img.light-image {
+        display: none;
+      }
+    }
+  }
+  &:not(.dark) {
+    .ab-hero-image {
+      &>img.dark-image {
+        display: none;
+      }
+    }
+  }
+}
