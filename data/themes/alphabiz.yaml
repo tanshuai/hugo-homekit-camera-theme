@@ -1,5 +1,5 @@
 # Theme metadata
-name: alphabiz
+name: homekit-camera
 
 font: minimal
 
@@ -17,7 +17,7 @@ light:
   menu_text_active: "#dca95a"
 
 dark:
-  primary: "#efab42"
+  primary: "#dca95a"
   background: "#242424"
 
 #  home_section_odd: "transparent"
